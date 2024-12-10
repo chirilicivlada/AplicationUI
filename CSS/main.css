@@ -1,0 +1,239 @@
+/* Adaugam variabilele */
+:root {
+    --text-primary: #101d42;
+    --text-secondary: #FBB44C;
+    --text-light: #EAEAEA;
+    --text-dark: #2b2922;
+    --text-white: #ffffff;
+
+    --bg-primary: #141e4c;
+    --bg-secondary: #dfedf5;
+    --bg-dark: #101d42;
+    --bg-light: #ffffff;
+
+    --button-color: #2bb686;
+
+    --fs-large: 16px;
+    --fs-medium: 14px;
+    --fs-small: 12px;
+
+    --spacing-xl: 42px;
+    --spacing-large: 28px;
+    --spacing-medium: 16px;
+    --spacing-small: 8px;
+    --spacing-tiny: 4px;
+
+    --mobile-logo-height: 45px;
+}
+/* Resetam proprietatile default ale browser-ului */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+/* Resetam stilurile default de mobile pentru input de tip submit */
+input[type="submit"] {
+    opacity: 1;
+    appearance: none;
+    -moz-appearance: none;
+}
+
+/* Adaugam stilizari generale legate de font */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+h1 {
+    font-size: 56px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+p {
+    font-size: var(--fs-medium) ;
+}
+
+/* Adaugam proprietati de culori generale */
+h1 {
+    color: var(--text-light);
+}
+
+h2 {
+    color: var(--text-primary);
+}
+
+h3 {
+    color: var(--text-secondary);
+}
+p {
+    color: var(--text-dark);
+}
+/* Imi definesc proprietati de css reutilizabile pentru a alinia continutul din pagina */
+/* Stilizarea de mai jos pentru clasa container - este un good practice pentru a alinia la centru tot continutul paginii */
+.container {
+    max-width: 1200px;
+    min-width: 320px;
+    margin: auto;
+    padding: var(--spacing-medium);
+}
+/* Stilizari de layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex-grow: 1;
+}
+
+/* Stlizare pentru navigatie */
+header {
+    background-color: var(--bg-primary);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+}
+
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo-link {
+    padding: 0;
+}
+
+nav .logo-link img {
+    height: 60px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav a {
+    font-size: var(--fs-small);
+    color: var(--text-light);
+    padding: var(--spacing-medium);
+    /* Transform toate literele in majuscule */
+    text-transform: uppercase;
+}
+
+/* Ascund submeniul deoarece afisarea lui se va face la hover pe parinte */
+nav .submenu {
+    display: none;
+    position: absolute;
+    top: calc(100% - var(--spacing-small));
+    left: var(--spacing-medium);
+    width: 160px;
+    padding: var(--spacing-tiny) 0;
+    background-color: var(--bg-dark);
+}
+
+nav .about-us {
+    position: relative;
+}
+
+/* Arat submeniul la hover */
+nav .about-us:hover .submenu {
+    display: block;
+}
+
+/* Micsorez padding-ul dintre elemente din submenu */
+nav .submenu a {
+    padding: var(--spacing-tiny) var(--spacing-small);
+}
+
+nav .arrow-down-icon {
+    font-size: var(--fs-large);
+    /* Daca nu specificam top, left, right, bottom cand avem pozitionat absolute un element - atunci inseamna ca el va fi pozitinat automat */
+    position: absolute;
+}
+
+nav input[type="checkbox"] {
+    display: none;
+}
+
+nav .menu-icon {
+    color: var(--text-light);
+    display: none;
+}
+
+/* Stilizarea ce se aplica pentru mobile */
+/* Tot ce se afla in interiorul acoladelor - inseamnca ca sunt proprietati de css ce se vor aplica atat timp cat dimesiunea browserului este MAXIM 768px */
+@media (max-width: 768px) {
+    nav img {
+        height: var(--mobile-logo-height);
+    }
+    /* Ascundem link-urile si afisam iconita de hamrburger icon */
+    nav ul {
+        display: none;
+    }
+
+    nav .menu-icon {
+        display: block;
+    }
+    nav .menu-icon-container {
+        position: relative;
+    }
+    nav input[type="checkbox"] {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Proprietatea de opacity nu imi scoate elementul din HTML, ci doar il face transparent  */
+        opacity: 0;
+        margin: 0;
+        cursor: pointer;
+    }
+    /* Acum introducem hack-ul care ne ve afisa meniul de navigatie in momentul cand bifam checkbpx-ul 
+    ~ - ne va selecta fratii de pa acelasi nivel cu inputul*/
+    nav input[type="checkbox"]:checked ~ ul {
+        display: block;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: calc(var(--mobile-logo-height) + 2 * var(--spacing-medium));
+        background-color: var(--bg-dark);
+    }
+    /* Ascund subemniul la hover peste despre noi */
+    nav .about-us:hover .submenu, nav .arrow-down-icon {
+        display: none;
+    }
+}
+
+/* Stilizare footer */
+footer {
+    background-color: var(--bg-dark);
+}
+
+footer p {
+    color: var(--text-light);
+    text-align: center;
+    font-size: var(--fs-small);
+    padding:var(--spacing-medium) 0;
+}

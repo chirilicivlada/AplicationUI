@@ -1,0 +1,235 @@
+
+/* Stilizare pentru sectiunea de welcome */
+.welcome {
+    width: 100%;
+    background-color: var(--bg-primary);
+    height: 100vh;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.welcome h1, .welcome p {
+    color: var(--text-white);
+}
+
+.welcome p {
+    font-size: var(--fs-large);
+    margin-bottom: var(--spacing-medium);
+}
+
+.welcome p span {
+    color: var(--text-secondary);
+}
+
+.welcome img {
+    height: 24px;
+    width: auto;
+    margin-left: var(--spacing-medium);
+    position: relative;
+    top: var(--spacing-tiny);
+}
+
+.welcome p:last-of-type {
+    margin-bottom: var(--spacing-xl);
+}
+
+.welcome a {
+    color: var(--text-light);
+    background-color: var(--button-color);
+    font-size: var(--fs-medium);
+    text-transform: uppercase;
+    padding: var(--spacing-medium);
+    width: 260px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid var(--button-color);
+}
+
+.welcome a:hover {
+    background-color: transparent;
+}
+
+.welcome .container {
+    display: flex;
+    flex-direction: column;
+
+    /* Vreau ca acest container sa ocuper 100 tot spatiul disponibil */
+    flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .welcome h1 {
+        font-size: 40px;
+    }
+
+    .welcome a {
+        /* Ascund butonul pe mobil */
+        display: none;
+    }
+    /* Pe ultimul tag de p scot proprietatea de margin */
+    .welcome p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .welcome img {
+        display: block;
+        margin-top: var(--spacing-medium);
+        margin-bottom: var(--spacing-small);
+    }
+}
+
+/* Stilizare pentru sectiune de cursuri */
+.courses h3 {
+    margin: var(--spacing-large) 0;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+/* stilizarea de mai jos se va aplica doar pe un element care are in acelasi timp si clasa container dar si clasa grid */
+.container.grid {
+    padding: var(--spacing-medium) var(--spacing-small);
+}
+
+.courses h2 {
+    text-align: center;
+}
+
+.courses .courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-large);
+}
+
+.courses .courses-wrapper {
+    width: calc(100% / 3);
+    padding-left: var(--spacing-small);
+    padding-right: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+}
+
+.courses span {
+    font-size: var(--fs-medium);
+    color: var(--text-dark);
+}
+
+/* Mai jos aliniem pe verticala iconitele de la google materials icons */
+.courses .material-symbols-outlined {
+    /* alinierea de mai jos merge pentru ca am elemente de tip inline */
+    vertical-align: middle;
+}
+
+.courses .date, .courses .place {
+    padding: var(--spacing-tiny);
+}
+
+.courses .place {
+    background-color: var(--text-secondary);
+    margin-left: var(--spacing-tiny);
+}
+
+.courses .bar {
+    height: var(--spacing-tiny);
+    background-color: var(--button-color);
+    border-radius: 10px;
+    margin-top: var(--spacing-medium);
+}
+.courses .content {
+  padding: var(--spacing-medium) var(--spacing-small);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+    .courses .courses-container .courses-wrapper {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .courses .courses-container .courses-wrapper {
+        width: 100%;
+    }
+}
+
+/* Who we are section */
+.who-we-are {
+    background-color: var(--bg-secondary);
+}
+
+.who-we-are h2 {
+    padding-top: var(--spacing-large);
+}
+
+.who-we-are h2, .who-we-are p {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.who-we-are p {
+    margin-left: var(--spacing-small);
+    margin-right: var(--spacing-small);
+}
+
+.who-we-are .images-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-large);
+}
+
+.who-we-are .image-wrapper {
+    width: calc(100% / 3);
+    padding-right: var(--spacing-small);
+    padding-left: var(--spacing-small);
+    margin-bottom: var(--spacing-medium);
+}
+
+.who-we-are .image-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 992px) {
+    .who-we-are .image-wrapper {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .who-we-are .image-wrapper {
+        width: 100%;
+    }
+}
+
+/* Partners section */
+#partners h2 {
+    text-align: center;
+    padding-top: var(--spacing-large);
+}
+
+#partners .partners-container {
+    margin-bottom: var(--spacing-large);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#partners .image-wrapper {
+    width: 100px;
+    margin-left: var(--spacing-xl);
+    margin-right: var(--spacing-xl);
+    margin-bottom: var(--spacing-medium);
+}
+
+#partners img {
+    width: 100%;
+    height: auto;
+    /* Facem pozele gri */
+    filter: grayscale(100%);
+}
+
+#partners img:hover {
+    filter: grayscale(0);
+}
+

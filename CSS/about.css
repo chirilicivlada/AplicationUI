@@ -1,0 +1,109 @@
+/* Va trebui sa adaugam stilizarea pentru mesajul de welcome */
+
+/* Mai jos avem stilizarea de baza pentru card-urile cu trainerii */
+.trainers .container {
+	padding: var(--spacing-medium) var(--spacing-small);
+}
+
+.trainers .trainers-container {
+	display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+	padding-bottom: var(--spacing-large);
+}
+
+.trainers .trainer-wrapper {
+	width: 25%;
+	padding: 0 var(--spacing-small);
+}
+
+
+
+.trainers .trainer {
+    width: 100%;
+    padding: var(--spacing-small);
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: calc( 2 * var(--spacing-xl));
+    /* Fac cardul pentru fiecare trainer sa ocupe minim o latime de 310px */
+    min-height: 350px;
+    
+}
+
+.trainers .image-wrapper{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow:hidden ;
+    margin-top: -70px;
+}
+
+
+.welcome {
+    background-color: var(--bg-primary);
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.welcome h1{
+    text-align: center;
+}
+
+
+.trainer h3{
+    width:100% ;
+    font-size:var(--fs-large);
+    font-weight: 400;
+    padding:var(--spacing-tiny) 0;
+    text-align:center;
+    background-color:var(--bg-primary);
+    border:1px solid var(--spacing-medium);
+    border-radius:5px;
+    margin-top:-25px;
+    margin-bottom:var(--spacing-medium);
+    z-index: 1;
+
+}
+
+.trainer img{
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+}
+
+@media (max-width:768px){
+    .welcome h1{
+        font-size: 32px;
+    }
+}
+@media(max-width: 992px){
+.trainers .tainers-wrapper{
+    width: calc(100% / 3);
+}}
+
+@media(max width: 768px){
+
+.trainers .tainers-wrapper{
+    width: 50%;}
+    .trainers .trainer{
+        min-height: 310px;
+    }
+}
+
+
+@media(max-width: 576px){
+    .trainers .trainer-wrapper{
+        width: 100%;   
+    }
+    .trainers .trainer{
+        min-width: 0;
+    }
+    .trainer p{
+        margin-bottom: var(--spacing-medium);
+    }
+}
+
